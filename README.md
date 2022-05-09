@@ -12,8 +12,8 @@ Tools and versions required to run the code:
 ## Usage
 
 ### Required parameters
-The *Subnet ID* is the only parameter required to run this automation.
-It can be obtained from the AWS Web Console -> VPC -> Subnets
+The *Subnet ID* and the *VPC ID* are the only parameters required to run this automation.
+They can be obtained from the AWS Web Console -> VPC -> Subnets
 
 Once gotten is recommened to set it up using the following command
 `export TF_VAR_subnet_id=<your-subnet-id>`
@@ -44,6 +44,7 @@ In the AWS Console a new AMI Image named cmdbuild in the us-east-1 region should
 #### Variables:
 ##### Required
 - **subnet-id**: Subnet to launch the resources in
+- **vpc-id**: Subnet to launch the resources in, it must be the vpc that contains the subnet_id
 
 #### Run terraform
 ```
