@@ -19,8 +19,10 @@ Once gotten is recommened to set it up using the following command
 `export TF_VAR_subnet_id=<your-subnet-id>`
 
 Setup your local AWS Profile.
-`export AWS_ACCESS_KEY_ID=<your-aws-access-key-id>`
-`export AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>`
+````
+export AWS_ACCESS_KEY_ID=<your-aws-access-key-id>
+export AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>
+````
 
 ### Default configuration
 The implementation will make use of the following configuration:
@@ -53,7 +55,7 @@ terraform apply
 
 #### CMDBuild access
 In your browser access the follwing address:
-http://<public-ip-address>:8080/cmdbuild
+`http://<public-ip-address>:8080/cmdbuild`
 
 ##### Setup CMDBuild
 To make use of CMDBuild in this installation enter the following params:
