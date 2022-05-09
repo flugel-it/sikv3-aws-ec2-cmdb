@@ -14,7 +14,7 @@ data "aws_ami" "ami" {
 
 # Get the default VPC id to deploy the security group
 data "aws_vpc" "main" {
-  default = true
+  id = var.vpc_id
 }
 
 resource "aws_instance" "cmdbuild" {
@@ -31,7 +31,7 @@ resource "aws_instance" "cmdbuild" {
   # the public SSH key
   key_name = var.key_name
 
-  depends_on = [resource.local_file.private_key]
+  depends_on = [resource.local_sensitive_file.private_key]
 
 }
 
@@ -78,7 +78,7 @@ resource "aws_key_pair" "private_key" {
   public_key = tls_private_key.private_key.public_key_openssh
 }
 
-resource "local_file" "private_key" {
-  sensitive_content = tls_private_key.private_key.private_key_pem
+resource "local_sensitive_file" "private_key" {
+  content           = tls_private_key.private_key.private_key_pem
   filename          = "artifacts/private.pem"
 }
